@@ -1,0 +1,170 @@
+<html>
+
+<head>
+
+<title>Yummy</title>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="description" content="food site" />
+<meta name="keywords" content="Food" />
+<meta name="author" content="Omar khalefa" />
+
+<!--? ===============  BootStrap5.3 =============== -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/all.min.css">
+<!--? ===============  Main Css File =============== -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+
+
+</head>
+
+<body>
+   
+
+    <div class="loading-1 position-fixed top-0 start-0 end-0 bottom-0 bg-black justify-content-center align-items-center">
+     
+         <span class="loader"></span>
+    </div>
+
+
+  <div class="nave-menu vh-100 position-fixed d-flex top-0" >
+      <div class="nav-tab  d-flex flex-column justify-content-between vh-100 p-4">
+          <div class="butttns">
+              <ul class="list-unstyled overflow-hidden">
+                  <li onclick="Searchbtns()" class="text-white btt l1 py-2 position-relative cursor-pointer">Search</li>
+                  <li onclick="getCategorydata()" class="text-white l2 btt py-2 position-relative cursor-pointer">Categories</li>
+                  <li onclick=" getMealsbyArea()" class="text-white btt l3 py-2 position-relative cursor-pointer">Area</li>
+                  <li onclick="getMealsingredientsList()" class="text-white l4 btt py-2 position-relative cursor-pointer">Ingredients</li>
+                  <li onclick="showContact()" class="text-white btt py-2 l5 position-relative cursor-pointer">Contact Us</li>
+              </ul>
+          </div>
+          <div class="nav-footer">
+              <div class="icons text-white">
+                  <i class="text-white icoo fa-brands fa-facebook"></i>
+                  <i class="text-white fa-brands fa-twitter"></i>
+                  <i class="text-white icoo fa-solid fa-globe"></i>
+              </div>
+              <div>
+                  <p class="text-white ">Copyright Â© 2019 All Rights <br>Reserved.</p>
+              </div>
+          </div>
+      </div>
+      <div class="nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black">
+          <a href="" onclick="getmeals()"><img class="logo"  src="img/logo.png" alt="" srcset=""></a>
+          <i id="openbt" onclick="openSide()" class="fa-solid fa-2x fa-align-justify d-block"></i>
+          <i id="closebt" onclick="closeside()" class="fa-solid fa-2x fa-x d-none"></i>
+          <div class="d-flex flex-column">
+              <i class="fa-solid py-1 text-dark fa-globe "></i>
+              <i class="fa-solid text-dark fa-share-nodes "></i>
+          </div>
+      </div>
+  </div> 
+
+
+   <div class="container-fluid w-75 d-none position-relative" id="searchBtns"> 
+    <i id="closeSerach" class="fa-solid fa-2x fa-x text-danger  end-0 position-absolute "></i>
+    <div class="row py-4 m-5 ">
+        <div class="col-md-6 ">
+            <input id="inpName" onkeyup="getDatabybyName(this.value)" class="form-control sss bg-transparent text-danger" type="text" placeholder="Search By Name">
+        </div>
+        <div class="col-md-6">
+            <input onkeyup="getDatabybychart(this.value)"  class="form-control sss bg-transparent text-danger" maxlength="1" type="text" placeholder="Search By First Letter">
+        </div>
+    </div>
+ 
+  </div> 
+
+  <div class="min-vh-100 position-relative">
+    <div class="loading position-fixed top-0 start-0 end-0 bottom-0 bg-black justify-content-center align-items-center">
+        <!-- <i class="fa fa-spinner fa-spin fa-5x"></i> -->
+         <span class="loader"></span>
+    </div>
+  
+      <div class="container">
+          <div class="row py-5 g-4 position-relative  " id="displymealsRow">
+              
+          </div>
+      </div>
+
+
+
+      <div class="container">
+          <div class="row py-5 g-4 position-relative d-none " id="displyContact">
+            <div class="contact vh-100 d-flex justify-content-center align-items-center">
+                <div class="container w-75 text-center">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <input id="nameInput" onkeyup=" validName()" type="text" class="form-control" placeholder="Enter Your Name">
+                            <div id="nameAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                Special characters and numbers not allowed
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="emailInput" onkeyup="validEmail()" type="email" class="form-control " placeholder="Enter Your Email">
+                            <div id="emailAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                <p>
+                                    Email not valid *exemple@yyy.zzz
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="phoneInput" onkeyup="validPhone()" type="text" class="form-control " placeholder="Enter Your Phone">
+                            <div id="phoneAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                <p>
+                                    Enter valid Phone Number
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="ageInput" onkeyup="validAge()" type="number" class="form-control " placeholder="Enter Your Age">
+                            <div id="ageAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                <p>
+                                    Enter valid age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input  id="passwordInput" onkeyup="validPassword()" type="password" class="form-control " placeholder="Enter Your Password">
+                            <div id="passwordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                <p>
+                                    Enter valid password *Minimum eight characters, at least one letter and one number:*
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input  id="repasswordInput" onkeyup="validRepatpassword()" type="password" class="form-control " placeholder="Repassword">
+                            <div id="repasswordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                                <p>
+                                    Enter valid repassword 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="submitBtn" disabled class="btn btn-outline-danger px-2 mt-3">Submit</button>
+                </div>
+            </div> 
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+  <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+
+
+
+
+
+
+</html>

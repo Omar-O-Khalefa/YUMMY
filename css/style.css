@@ -1,0 +1,98 @@
+
+body{
+    background-color:  #f3f3f3;
+
+}
+.nav-tab{
+    background-color:#ff3d00;
+}
+.logo{
+    width: 35px;
+}
+
+.nave-menu{
+    z-index: 75;
+    font-size: 14px;
+}
+i ,li{
+    cursor: pointer;
+}
+
+#closeidetals{
+position: absolute;
+right: 0px;
+
+}
+.sss::placeholder{
+    color: rgb(109, 108, 108) ;
+}
+
+.meal-layer{
+    width: 100%;
+    height: 100%;
+    background-color: #f9f6f6ca;
+    top: 100%;
+    transition: .5s;
+
+    
+}
+.mealcont{
+    cursor: pointer;
+}
+.mealcont:hover .meal-layer{
+    top: 0px;
+}
+.ssaa{
+    font-size: 14px;
+}
+
+.loading-1{
+    height: 100vh;
+    z-index: 99;
+}
+
+.loading{
+    height: 100vh;
+    z-index: 55;
+
+}
+#searchBtns{
+    z-index: 5112312;
+}
+/* .qqq{ 
+    overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; 
+           line-clamp: 3; 
+   -webkit-box-orient: vertical;
+
+} */
+.loader {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    animation: roll 1s ease-in-out infinite alternate;
+    display: flex;
+    margin: auto;
+    margin-top:20% ;
+  }
+  .loader:after{
+    content:"";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 5px solid ;
+    border-color: #ff3d00 transparent;
+  }
+  @keyframes roll {
+    0% {
+      transform: translateX(-150%) rotate(0deg) ;
+    }
+    100% {
+      transform:  translateX(150%) rotate(360deg);
+    }
+  }
+
+
